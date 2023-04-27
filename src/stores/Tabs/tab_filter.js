@@ -114,7 +114,7 @@ export const TabFilter = types
       }
     },
 
-    setFilter(value, save = true) {
+    setFilter(value) {
       if (!isDefined(value)) return;
 
       const previousFilterType = self.filter.currentType;
@@ -134,13 +134,8 @@ export const TabFilter = types
         self.setOperator(self.component[0].key);
       }
 
-      if (save) self.saved();
+      // if (save) self.saved();
     },
-
-    // setFilterDelayed(value) {
-    //   self.setFilter(value, false);
-    //   self.saveDelayed();
-    // },
 
     setOperator(operator) {
       const previousValueType = self.componentValueType;
@@ -154,7 +149,7 @@ export const TabFilter = types
         self.setDefaultValue();
       }
 
-      self.save();
+      // self.save();
     },
 
     setValue(newValue) {

@@ -1,6 +1,6 @@
 import { inject } from "mobx-react";
 import React from "react";
-import { FaCaretSquareRight, FaPlus } from "react-icons/fa";
+import { FaCaretSquareRight, FaPlus, FaSearch } from "react-icons/fa";
 import { Block, cn, Elem } from "../../utils/bem";
 import { Button } from "../Common/Button/Button";
 import { Icon } from "../Common/Icon/Icon";
@@ -78,11 +78,15 @@ export const Filters = injector(({ views, currentView, filters }) => {
         >
           Add {filters.length ? "Another Filter" : "Filter"}
         </Button>
+
         {filters.length ? (
           <Button
             type="primary"
             size="small"
-            onClick={() => currentView.setFilterDelayed(filters)}
+            onClick={() => SaveFilters(filters)}
+            
+            icon={<FaSearch />}
+            style={{ marginLeft: "42%" }}
           >
             Search
           </Button>
@@ -104,3 +108,15 @@ export const Filters = injector(({ views, currentView, filters }) => {
     </Block>
   );
 });
+
+const SaveFilters = (filters) => {
+  const saveFilterFunction = () => {
+    filters.map((filter) => {
+      filter.save(true);
+    });
+  };
+
+  if (filters.length) {
+    saveFilterFunction();
+  }
+};

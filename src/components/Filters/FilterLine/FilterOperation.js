@@ -1,7 +1,8 @@
 import { observer } from "mobx-react";
-import React, { useCallback, useMemo } from "react";
+// import React, { useCallback, useMemo } from "react";
+import React, { useMemo } from "react";
 import { Elem } from "../../../utils/bem";
-import { debounce } from "../../../utils/debounce";
+// import { debounce } from "../../../utils/debounce";
 import { FilterDropdown } from "../FilterDropdown";
 import * as FilterInputs from "../types";
 import { Common } from "../types/Common";
@@ -35,13 +36,13 @@ export const FilterOperation = observer(
       return result;
     }, [operator, types, filter]);
 
-    const saveFilter = useCallback(debounce(() => {
-      filter.save(true);
-    }, 300), [filter]);
+    // const saveFilter = useCallback(() => {
+    //   filter.save(true);
+    // }, [filter]);
 
     const onChange = (newValue) => {
       filter.setValue(newValue);
-      saveFilter();
+      // saveFilter();
     };
 
     const onOperatorSelected = (selectedKey) => {
