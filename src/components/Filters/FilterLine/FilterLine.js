@@ -56,7 +56,7 @@ export const FilterLine = observer(({
             width={80}
             dropdownWidth={120}
             dropdownClassName={dropdownClassName}
-            // onChange={(value) => filter.setFilterDelayed(value)}
+            onChange={(value) => filter.setFilterDelayed(value)}
             optionRender={({ item: { original: filter } }) => (
               <Elem name="selector">
                 {filter.field.title}

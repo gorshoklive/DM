@@ -330,10 +330,7 @@ export const Tab = types
         self.columnsDisplayType.delete(columnID);
       }
     },
-    setFilterDelayed(value) {
-      self.setFilter(value, false);
-      self.saveDelayed();
-    },
+  
     createFilter() {
       const filterType = self.availableFilters[0];
       const filter = TabFilter.create({

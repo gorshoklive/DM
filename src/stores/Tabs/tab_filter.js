@@ -114,7 +114,7 @@ export const TabFilter = types
       }
     },
 
-    setFilter(value) {
+    setFilter(value, save = true) {
       if (!isDefined(value)) return;
 
       const previousFilterType = self.filter.currentType;
@@ -134,7 +134,12 @@ export const TabFilter = types
         self.setOperator(self.component[0].key);
       }
 
-      // if (save) self.saved();
+      if (save) self.saved();
+    },
+
+    setFilterDelayed(value) {
+      self.setFilter(value, false);
+      self.saveDelayed();
     },
 
     setOperator(operator) {
